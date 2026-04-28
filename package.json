@@ -1,0 +1,14 @@
+{
+  "name": "taeyoung-linktree",
+  "version": "1.0.0",
+  "private": true,
+  "description": "personal linktree for taeyoung5075 — deployed on Cloudflare Workers",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

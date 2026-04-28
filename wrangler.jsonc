@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "taeyoung-linktree",
+  "compatibility_date": "2025-04-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  }
+  // 도메인 연결은 Cloudflare 대시보드에서 Workers > Settings > Domains & Routes
+  // 에서 parktaeyoung.com / www.parktaeyoung.com 을 Custom Domain 으로 추가하세요.
+  // (zone 이 같은 계정에 있어야 자동으로 SSL 까지 잡힙니다)
+}
