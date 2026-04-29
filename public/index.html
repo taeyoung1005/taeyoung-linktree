@@ -46,8 +46,14 @@
             "name": "taeyoung5075",
             "alternateName": "Taeyoung Park",
             "url": "https://parktaeyoung.com/",
+            "email": "mailto:mu07010@gmail.com",
             "description": "taeyoung5075 is an indie hacker building in public and sharing projects across social platforms.",
             "jobTitle": "Indie hacker",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "mu07010@gmail.com",
+              "contactType": "general inquiry"
+            },
             "knowsAbout": [
               "indie hacking",
               "building in public",
@@ -546,6 +552,7 @@
         <a rel="me" href="https://www.youtube.com/@taeyoung5075">YouTube @taeyoung5075</a>
         <a rel="me" href="https://www.tiktok.com/@taeyoung5075">TikTok @taeyoung5075</a>
       </nav>
+      <p>Contact: <a href="mailto:mu07010@gmail.com">mu07010@gmail.com</a></p>
     </section>
     <noscript>
       <style>.panel{display:none}</style>
@@ -559,6 +566,7 @@
           <li><a rel="me" href="https://www.youtube.com/@taeyoung5075">YouTube @taeyoung5075</a></li>
           <li><a rel="me" href="https://www.tiktok.com/@taeyoung5075">TikTok @taeyoung5075</a></li>
         </ul>
+        <p>Contact: <a href="mailto:mu07010@gmail.com">mu07010@gmail.com</a></p>
       </main>
     </noscript>
     <div class="panel">
@@ -659,11 +667,14 @@
         }).concat([
           { num: "·", primary: "/about",   aliases: ["/whoami", "/me"],        desc: "profile / whoami",       run: cmdAbout },
           { num: "·", primary: "/links",   aliases: ["/ls", "ls"],             desc: "list social links",      run: cmdLinks },
+          { num: "·", primary: "/contact", aliases: ["/email", "/mail"],       desc: "send a message",         run: cmdContact },
           { num: "·", primary: "/help",    aliases: ["/?", "?", "help"],       desc: "show available commands", run: cmdHelp },
           { num: "·", primary: "/clear",   aliases: ["/cls", "clear", "cls"],  desc: "clear the terminal",      run: cmdClear },
           { num: "·", primary: "/uptime",  aliases: [],                         desc: "system status",          run: cmdUptime },
           { num: "·", primary: "/echo",    aliases: [],                         desc: "/echo <text>",           run: cmdEcho }
         ]);
+
+        var CONTACT_EMAIL = "mu07010@gmail.com";
 
         // ── helpers ──────────────────────────────────────────────
         var skipped = false;
@@ -811,6 +822,20 @@
         }
         function cmdEcho(rest) {
           printLine(rest && rest.length ? rest : " ", "muted");
+        }
+        function cmdContact() {
+          printHTML(
+            '<span class="info">→ opening</span> <span class="accent">mailto:' +
+            CONTACT_EMAIL + '</span> <span class="dim">…</span>'
+          );
+          printHTML(
+            '<span class="dim">if your client doesn\'t open, copy:</span> ' +
+            '<a class="accent" href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>'
+          );
+          setTimeout(function () {
+            window.location.href = "mailto:" + CONTACT_EMAIL +
+              "?subject=hi%20from%20parktaeyoung.com";
+          }, 100);
         }
 
         // ── execute ──────────────────────────────────────────────
@@ -1052,7 +1077,8 @@
           ['<span class="dim">tip:</span> <span class="acc">Tab</span> <span class="dim">to autocomplete</span>'],
           ['<span class="dim">tip:</span> <span class="acc">↑↓</span> <span class="dim">for history</span>'],
           ['<span class="dim">next:</span> <span class="acc">[2] /instagram</span> <span class="dim">·</span> @taeyoung5075'],
-          ['<span class="dim">next:</span> <span class="acc">[4] /youtube</span> <span class="dim">·</span> @taeyoung5075']
+          ['<span class="dim">next:</span> <span class="acc">[4] /youtube</span> <span class="dim">·</span> @taeyoung5075'],
+          ['<span class="dim">reach out:</span> <span class="acc">/contact</span> <span class="dim">·</span> mu07010@gmail.com']
         ];
         var hi = 0;
         setInterval(function () {
@@ -1085,7 +1111,7 @@
           }
           gap();
 
-          await typeLine("[system] type /help or press 1-5 to follow", { speed: 8, cls: "dim" });
+          await typeLine("[system] type /help · /contact for inquiries · press 1-5 to follow", { speed: 8, cls: "dim" });
 
           sequenceDone = true;
           // focus input when sequence is done
