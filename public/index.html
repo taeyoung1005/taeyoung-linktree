@@ -34,7 +34,24 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GPVLQZ71C"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5GPVLQZ71C', {
+        // outbound clicks open in new tabs, page never unloads — but use beacon to be safe
+        transport_type: 'beacon'
+      });
+      // global helper: ignore if gtag not loaded yet (still queues via dataLayer)
+      window.track = function (name, params) {
+        try { gtag('event', name, params || {}); } catch (e) {}
+      };
+    </script>
 
     <script type="application/ld+json">
       {
@@ -743,6 +760,17 @@
         function printLine(text, cls) { appendInstant(text, cls); }
         function printHTML(html, cls) { appendInstant(html, cls); }
 
+        function attachLinkTracking(a, url) {
+          a.addEventListener("click", function () {
+            var s = SOCIALS.find(function (x) { return x.url === url; });
+            if (s) window.track && window.track("social_click", {
+              platform: platformOf(s),
+              destination_url: s.url,
+              source: "link_click"
+            });
+          });
+        }
+
         async function typeLinkRow(opts, speed) {
           var a = el("a", "link");
           a.href = opts.url;
@@ -753,6 +781,7 @@
           var handle = el("span", "handle");
           var url = el("span", "url");
           a.appendChild(arr); a.appendChild(name); a.appendChild(handle); a.appendChild(url);
+          attachLinkTracking(a, opts.url);
           out.appendChild(a);
           autoscroll();
           await typeInto(name, opts.name, speed);
@@ -768,12 +797,20 @@
             '<span class="name">' + opts.name + '</span>' +
             '<span class="handle">@' + opts.handle + '</span>' +
             '<span class="url">' + opts.url.replace(/^https?:\/\//, "") + '</span>';
+          attachLinkTracking(a, opts.url);
           out.appendChild(a);
           autoscroll();
         }
 
         // ── command implementations ──────────────────────────────
-        function runSocial(s) {
+        function platformOf(s) { return (s.label || "").replace(/^\//, ""); }
+
+        function runSocial(s, source) {
+          window.track && window.track("social_click", {
+            platform: platformOf(s),
+            destination_url: s.url,
+            source: source || "command"
+          });
           appendInstant(
             '<span class="info">→ opening</span> <span class="accent">' +
             s.url.replace(/^https?:\/\//, "") + '</span> <span class="dim">…</span>'
@@ -871,6 +908,7 @@
 
           var cmd = findCommand(token);
           if (!cmd) {
+            window.track && window.track("command_unknown", { token: token });
             printHTML(
               '<span class="err">command not found:</span> ' +
               '<span class="muted">' + escapeHtml(token) + '</span> ' +
@@ -878,6 +916,11 @@
             );
             return;
           }
+          window.track && window.track("command_run", {
+            command: cmd.primary,
+            input_token: token,
+            has_args: rest.length > 0
+          });
           if (cmd.primary === "/echo") cmd.run(rest);
           else cmd.run();
         }
@@ -891,6 +934,7 @@
         // ── palette ──────────────────────────────────────────────
         var paletteIdx = -1;
         var paletteFiltered = [];
+        var paletteOpenedOnce = false;
 
         function openPalette(filter) {
           var query = (filter || "").toLowerCase();
@@ -907,6 +951,10 @@
             palette.classList.add("show");
             paletteIdx = 0;
             highlightPalette();
+            if (!paletteOpenedOnce) {
+              paletteOpenedOnce = true;
+              window.track && window.track("palette_open", { results: paletteFiltered.length });
+            }
           } else {
             closePalette();
           }
@@ -1028,7 +1076,7 @@
             var s = SOCIALS[parseInt(e.key, 10) - 1];
             if (s) {
               printPrompt(e.key);
-              runSocial(s);
+              runSocial(s, "shortcut_key");
             }
           }
         });
@@ -1040,6 +1088,7 @@
           // skip the autoplay if running
           if (!sequenceDone && !skipped) {
             skipped = true;
+            window.track && window.track("sequence_skipped", { trigger: "keydown" });
             return;
           }
           if (e.key.length === 1 || e.key === "/" || e.key === "Backspace") {
