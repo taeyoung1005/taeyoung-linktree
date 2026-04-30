@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
     <title>taeyoung5075 | Indie Hacker & Building in Public</title>
-    <meta name="description" content="Official link hub for taeyoung5075, an indie hacker building in public. Find X, Instagram, Threads, YouTube, and TikTok profiles." />
+    <meta name="description" content="Official link hub for taeyoung5075, an indie hacker building in public. Find X, Instagram, Threads, YouTube, TikTok, and GitHub (@taeyoung1005) profiles." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="taeyoung5075" />
     <meta name="application-name" content="taeyoung5075 Terminal Links" />
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="taeyoung5075" />
     <meta property="og:title" content="taeyoung5075 | Indie Hacker & Building in Public" />
-    <meta property="og:description" content="Official link hub for taeyoung5075. Follow the indie hacker building in public across X, Instagram, Threads, YouTube, and TikTok." />
+    <meta property="og:description" content="Official link hub for taeyoung5075. Follow the indie hacker building in public across X, Instagram, Threads, YouTube, TikTok, and GitHub." />
     <meta property="og:url" content="https://parktaeyoung.com/" />
     <meta property="og:image" content="https://parktaeyoung.com/assets/og-image.png" />
     <meta property="og:image:secure_url" content="https://parktaeyoung.com/assets/og-image.png" />
@@ -82,7 +82,8 @@
               "https://instagram.com/taeyoung5075",
               "https://www.threads.net/@taeyoung5075",
               "https://www.youtube.com/@taeyoung5075",
-              "https://www.tiktok.com/@taeyoung5075"
+              "https://www.tiktok.com/@taeyoung5075",
+              "https://github.com/taeyoung1005"
             ]
           },
           {
@@ -114,7 +115,8 @@
                 { "@type": "ListItem", "position": 2, "name": "Instagram", "url": "https://instagram.com/taeyoung5075" },
                 { "@type": "ListItem", "position": 3, "name": "Threads", "url": "https://www.threads.net/@taeyoung5075" },
                 { "@type": "ListItem", "position": 4, "name": "YouTube", "url": "https://www.youtube.com/@taeyoung5075" },
-                { "@type": "ListItem", "position": 5, "name": "TikTok", "url": "https://www.tiktok.com/@taeyoung5075" }
+                { "@type": "ListItem", "position": 5, "name": "TikTok", "url": "https://www.tiktok.com/@taeyoung5075" },
+                { "@type": "ListItem", "position": 6, "name": "GitHub", "url": "https://github.com/taeyoung1005" }
               ]
             }
           },
@@ -135,7 +137,7 @@
                 "name": "Where can I follow taeyoung5075?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "You can follow taeyoung5075 on X, Instagram, Threads, YouTube, and TikTok from the links on parktaeyoung.com."
+                  "text": "You can follow taeyoung5075 on X, Instagram, Threads, YouTube, TikTok, and GitHub (@taeyoung1005) from the links on parktaeyoung.com."
                 }
               },
               {
@@ -568,6 +570,7 @@
         <a rel="me" href="https://www.threads.net/@taeyoung5075">Threads @taeyoung5075</a>
         <a rel="me" href="https://www.youtube.com/@taeyoung5075">YouTube @taeyoung5075</a>
         <a rel="me" href="https://www.tiktok.com/@taeyoung5075">TikTok @taeyoung5075</a>
+        <a rel="me" href="https://github.com/taeyoung1005">GitHub @taeyoung1005</a>
       </nav>
       <p>Contact: <a href="mailto:mu07010@gmail.com">mu07010@gmail.com</a></p>
     </section>
@@ -582,6 +585,7 @@
           <li><a rel="me" href="https://www.threads.net/@taeyoung5075">Threads @taeyoung5075</a></li>
           <li><a rel="me" href="https://www.youtube.com/@taeyoung5075">YouTube @taeyoung5075</a></li>
           <li><a rel="me" href="https://www.tiktok.com/@taeyoung5075">TikTok @taeyoung5075</a></li>
+          <li><a rel="me" href="https://github.com/taeyoung1005">GitHub @taeyoung1005</a></li>
         </ul>
         <p>Contact: <a href="mailto:mu07010@gmail.com">mu07010@gmail.com</a></p>
       </main>
@@ -670,7 +674,8 @@
           { key: "2", aliases: ["/instagram", "/ig"], label: "/instagram", desc: "Instagram @taeyoung5075",        url: "https://instagram.com/taeyoung5075" },
           { key: "3", aliases: ["/threads"],          label: "/threads",   desc: "Threads @taeyoung5075",          url: "https://www.threads.net/@taeyoung5075" },
           { key: "4", aliases: ["/youtube", "/yt"],   label: "/youtube",   desc: "YouTube @taeyoung5075",          url: "https://www.youtube.com/@taeyoung5075" },
-          { key: "5", aliases: ["/tiktok", "/tt"],    label: "/tiktok",    desc: "TikTok @taeyoung5075",           url: "https://www.tiktok.com/@taeyoung5075" }
+          { key: "5", aliases: ["/tiktok", "/tt"],    label: "/tiktok",    desc: "TikTok @taeyoung5075",           url: "https://www.tiktok.com/@taeyoung5075" },
+          { key: "6", aliases: ["/github", "/gh"],    label: "/github",    desc: "GitHub @taeyoung1005",           url: "https://github.com/taeyoung1005" }
         ];
 
         var COMMANDS = SOCIALS.map(function (s, i) {
@@ -1071,7 +1076,7 @@
             }
           }
           // numeric shortcut on empty input
-          if (input.value === "" && /^[1-5]$/.test(e.key)) {
+          if (input.value === "" && /^[1-6]$/.test(e.key)) {
             e.preventDefault();
             var s = SOCIALS[parseInt(e.key, 10) - 1];
             if (s) {
@@ -1160,7 +1165,7 @@
           }
           gap();
 
-          await typeLine("[system] type /help · /contact for inquiries · press 1-5 to follow", { speed: 8, cls: "dim" });
+          await typeLine("[system] type /help · /contact for inquiries · press 1-6 to follow", { speed: 8, cls: "dim" });
 
           sequenceDone = true;
           // focus input when sequence is done
