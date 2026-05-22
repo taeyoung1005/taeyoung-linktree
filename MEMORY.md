@@ -7,6 +7,22 @@
 - 배포: Cloudflare Workers (Static Assets) → parktaeyoung.com 도메인
 - 소셜 핸들 통일: X, Instagram, Threads, YouTube, TikTok 모두 `taeyoung5075`
 
+## SEO/AEO/GEO 보강 + ASCII 배너 (2026-05-22)
+- 출처: Google AI optimization guide (developers.google.com/search/docs/fundamentals/ai-optimization-guide)
+- 가이드 핵심: "AEO/GEO 전용 해킹/llms.txt/AI용 마크업 불필요 → 본질 SEO + 콘텐츠 품질(E-E-A-T)에 집중"
+- 결정: llms.txt는 유지(Google엔 무의미하나 타 AI엔 유효, 무해), 기술위생+E-E-A-T 둘 다 진행
+- 변경:
+  - sitemap.xml: lastmod 2026-05-22, changefreq weekly
+  - JSON-LD: WebSite·ProfilePage에 dateModified(freshness), Person description을 6개 프로덕트 출시 사실로 강화, knowsAbout 7개로 확장
+  - meta/og description: "indie hacker shipping AI products in public · 6 products built" 톤 (meta 154자로 SERP fit)
+  - about(/about + 시작 시퀀스): "6 products shipped — AI tools, a daily newsletter, a builder community." 줄 추가
+  - og-image 최적화는 보류(메타 전용=본문 LCP 무관, PNG→JPEG 화질/메타 변경 리스크)
+- ASCII 배너 (사용자 요청, vibe labs 예시 오마주):
+  - 시작 시퀀스 맨 앞: `cat home.md` → `✱` → `where ideas ship as products.`(태그라인) → TAEYOUNG ANSI Shadow ASCII 배너
+  - 워드마크 "TAEYOUNG" (figlet ANSI Shadow, npx figlet-cli로 생성, 6줄), 태그라인 "where ideas ship as products."
+  - CSS `.banner`: white-space pre + overflow-x auto + font-size clamp(5px,1.7vw,11px) 반응형 + accent + glow + bannerIn 페이드 + reduced-motion off, aria-hidden
+- 배포: Version 35d91680, 라이브(parktaeyoung.com) 전 요소 확인. 미커밋
+
 ## /portfolio 명령어 추가 (2026-05-22)
 - 목적: "내가 만든 사이트/프로덕트" 보여주는 `/portfolio` 명령어 (alias `/projects` `/products` `/work`)
 - 데이터: `PRODUCTS` 배열 (SOCIALS 패턴 동일) — 6개, 설명은 영어, 상태 배지 없음
