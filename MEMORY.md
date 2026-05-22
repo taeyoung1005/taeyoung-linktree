@@ -7,6 +7,22 @@
 - 배포: Cloudflare Workers (Static Assets) → parktaeyoung.com 도메인
 - 소셜 핸들 통일: X, Instagram, Threads, YouTube, TikTok 모두 `taeyoung5075`
 
+## /portfolio 명령어 추가 (2026-05-22)
+- 목적: "내가 만든 사이트/프로덕트" 보여주는 `/portfolio` 명령어 (alias `/projects` `/products` `/work`)
+- 데이터: `PRODUCTS` 배열 (SOCIALS 패턴 동일) — 6개, 설명은 영어, 상태 배지 없음
+  1. SimpleClawra — private AI companion on your own VM — simpleclawra.jocoding.io
+  2. Noosphere — validate product ideas with AI simulation — noosphere.jocoding.io
+  3. Mind Spire — AI affirmations & mental-wellness app — mindspire.jocoding.io
+  4. Jocoletter — daily 5-min AI & dev news brief — jocoletter.jocoding.io
+  5. Mirrorly — one photo → AI images & videos — mirrorly.jocoding.io
+  6. JocoHunt — launch board for **Korean** indie builders — jocohunt.jocoding.io
+- 렌더: 새 `.plink` CSS 클래스(grid `→ 이름 설명 url`, 모바일 url 숨김) + `printProductRow` + `cmdPortfolio`
+- 트래킹: GA `product_click` 이벤트 (social_click 패턴 그대로)
+- 안내: 시작 시퀀스 system 줄 + 회전 hint에 /portfolio 추가, /help·팔레트 자동 노출
+- SEO/GEO/AEO: JSON-LD `#projects` ItemList(WebApplication ×6, author→#person) + FAQ "What products…" Q + seo-content/noscript 링크 블록 + llms.txt `## Products` 섹션
+- 검증: node로 JSON-LD JSON.parse OK·IIFE 문법 OK, `wrangler dev`(8788) 서빙 HTML에 전 요소 확인 (jocoding.io 링크 24개)
+- 미커밋 (사용자 요청 시 커밋)
+
 ## 디자인 (v4 — v3 + 동작하는 명령어 입력창)
 - v3 기반에 nitro 처럼 하단 입력 바 추가 (statusbar / cmdbar 2단)
 - Layout: chrome → body(scroll) → statusbar(MEM/CPU/UP · LANG) → cmdbar(`>` + input + 회전 hint + ↵)

@@ -121,6 +121,20 @@
             }
           },
           {
+            "@type": "ItemList",
+            "@id": "https://parktaeyoung.com/#projects",
+            "name": "Sites and products built by taeyoung5075",
+            "description": "Products and sites taeyoung5075 has built and ships in public.",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "item": { "@type": "WebApplication", "name": "SimpleClawra", "url": "https://simpleclawra.jocoding.io/", "applicationCategory": "AI", "description": "Private AI companion on your own VM.", "author": { "@id": "https://parktaeyoung.com/#person" } } },
+              { "@type": "ListItem", "position": 2, "item": { "@type": "WebApplication", "name": "Noosphere", "url": "https://noosphere.jocoding.io/", "applicationCategory": "AI", "description": "Validate product ideas with AI simulation.", "author": { "@id": "https://parktaeyoung.com/#person" } } },
+              { "@type": "ListItem", "position": 3, "item": { "@type": "WebApplication", "name": "Mind Spire", "url": "https://mindspire.jocoding.io/", "applicationCategory": "HealthApplication", "description": "AI affirmations and mental-wellness app.", "author": { "@id": "https://parktaeyoung.com/#person" } } },
+              { "@type": "ListItem", "position": 4, "item": { "@type": "WebApplication", "name": "Jocoletter", "url": "https://jocoletter.jocoding.io/", "applicationCategory": "News", "description": "Daily 5-minute AI and developer news brief.", "author": { "@id": "https://parktaeyoung.com/#person" } } },
+              { "@type": "ListItem", "position": 5, "item": { "@type": "WebApplication", "name": "Mirrorly", "url": "https://mirrorly.jocoding.io/", "applicationCategory": "AI", "description": "Turn one photo into AI images and videos.", "author": { "@id": "https://parktaeyoung.com/#person" } } },
+              { "@type": "ListItem", "position": 6, "item": { "@type": "WebApplication", "name": "JocoHunt", "url": "https://jocohunt.jocoding.io/", "applicationCategory": "Community", "description": "Launch board for Korean indie builders.", "author": { "@id": "https://parktaeyoung.com/#person" } } }
+            ]
+          },
+          {
             "@type": "FAQPage",
             "@id": "https://parktaeyoung.com/#faq",
             "mainEntity": [
@@ -146,6 +160,14 @@
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "parktaeyoung.com is the official terminal-style link hub for taeyoung5075."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What products has taeyoung5075 built?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "taeyoung5075 builds in public and has shipped SimpleClawra (private AI companion on your own VM), Noosphere (validate product ideas with AI simulation), Mind Spire (AI affirmations and mental-wellness app), Jocoletter (daily 5-minute AI and developer news brief), Mirrorly (turn one photo into AI images and videos), and JocoHunt (launch board for Korean indie builders). Run the /portfolio command on parktaeyoung.com to see them all."
                 }
               }
             ]
@@ -343,6 +365,16 @@
       .link:hover .name, .link:focus-visible .name { color: var(--accent-light); }
       .link:hover .handle, .link:focus-visible .handle { color: var(--text-primary); }
       .link:hover .url, .link:focus-visible .url { color: var(--accent-light); }
+
+      /* product link rows (wider description column) */
+      .plink { grid-template-columns: 14px 132px minmax(0, 1fr) auto; }
+      .plink .pdesc {
+        color: var(--text-secondary);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .plink:hover .pdesc, .plink:focus-visible .pdesc { color: var(--text-primary); }
 
       /* caret */
       .caret {
@@ -550,6 +582,7 @@
         .chrome-title { font-size: 12px; }
         .chrome-status { display: none; }
         .link { grid-template-columns: 12px 96px 1fr; gap: 12px; }
+        .plink { grid-template-columns: 12px 108px 1fr; }
         .link .url { display: none; }
         .status-inner { font-size: 10px; }
         .status-left .stat:nth-child(2) { display: none; }
@@ -572,6 +605,15 @@
         <a rel="me" href="https://www.tiktok.com/@taeyoung5075">TikTok @taeyoung5075</a>
         <a rel="me" href="https://github.com/taeyoung1005">GitHub @taeyoung1005</a>
       </nav>
+      <h2>Products built by taeyoung5075</h2>
+      <nav aria-label="Sites and products built by taeyoung5075">
+        <a href="https://simpleclawra.jocoding.io/">SimpleClawra — private AI companion on your own VM</a>
+        <a href="https://noosphere.jocoding.io/">Noosphere — validate product ideas with AI simulation</a>
+        <a href="https://mindspire.jocoding.io/">Mind Spire — AI affirmations and mental-wellness app</a>
+        <a href="https://jocoletter.jocoding.io/">Jocoletter — daily 5-minute AI and developer news brief</a>
+        <a href="https://mirrorly.jocoding.io/">Mirrorly — turn one photo into AI images and videos</a>
+        <a href="https://jocohunt.jocoding.io/">JocoHunt — launch board for Korean indie builders</a>
+      </nav>
       <p>Contact: <a href="mailto:mu07010@gmail.com">mu07010@gmail.com</a></p>
     </section>
     <noscript>
@@ -586,6 +628,15 @@
           <li><a rel="me" href="https://www.youtube.com/@taeyoung5075">YouTube @taeyoung5075</a></li>
           <li><a rel="me" href="https://www.tiktok.com/@taeyoung5075">TikTok @taeyoung5075</a></li>
           <li><a rel="me" href="https://github.com/taeyoung1005">GitHub @taeyoung1005</a></li>
+        </ul>
+        <h2>Products I built</h2>
+        <ul>
+          <li><a href="https://simpleclawra.jocoding.io/">SimpleClawra — private AI companion on your own VM</a></li>
+          <li><a href="https://noosphere.jocoding.io/">Noosphere — validate product ideas with AI simulation</a></li>
+          <li><a href="https://mindspire.jocoding.io/">Mind Spire — AI affirmations and mental-wellness app</a></li>
+          <li><a href="https://jocoletter.jocoding.io/">Jocoletter — daily 5-minute AI and developer news brief</a></li>
+          <li><a href="https://mirrorly.jocoding.io/">Mirrorly — turn one photo into AI images and videos</a></li>
+          <li><a href="https://jocohunt.jocoding.io/">JocoHunt — launch board for Korean indie builders</a></li>
         </ul>
         <p>Contact: <a href="mailto:mu07010@gmail.com">mu07010@gmail.com</a></p>
       </main>
@@ -678,6 +729,15 @@
           { key: "6", aliases: ["/github", "/gh"],    label: "/github",    desc: "GitHub @taeyoung1005",           url: "https://github.com/taeyoung1005" }
         ];
 
+        var PRODUCTS = [
+          { name: "SimpleClawra", desc: "private AI companion on your own VM",       url: "https://simpleclawra.jocoding.io/" },
+          { name: "Noosphere",    desc: "validate product ideas with AI simulation", url: "https://noosphere.jocoding.io/" },
+          { name: "Mind Spire",   desc: "AI affirmations & mental-wellness app",     url: "https://mindspire.jocoding.io/" },
+          { name: "Jocoletter",   desc: "daily 5-min AI & dev news brief",           url: "https://jocoletter.jocoding.io/" },
+          { name: "Mirrorly",     desc: "one photo → AI images & videos",       url: "https://mirrorly.jocoding.io/" },
+          { name: "JocoHunt",     desc: "launch board for Korean indie builders",    url: "https://jocohunt.jocoding.io/" }
+        ];
+
         var COMMANDS = SOCIALS.map(function (s, i) {
           return {
             num: String(i + 1),
@@ -689,6 +749,7 @@
         }).concat([
           { num: "·", primary: "/about",   aliases: ["/whoami", "/me"],        desc: "profile / whoami",       run: cmdAbout },
           { num: "·", primary: "/links",   aliases: ["/ls", "ls"],             desc: "list social links",      run: cmdLinks },
+          { num: "·", primary: "/portfolio", aliases: ["/projects", "/products", "/work"], desc: "sites & products I built", run: cmdPortfolio },
           { num: "·", primary: "/contact", aliases: ["/email", "/mail"],       desc: "send a message",         run: cmdContact },
           { num: "·", primary: "/help",    aliases: ["/?", "?", "help"],       desc: "show available commands", run: cmdHelp },
           { num: "·", primary: "/clear",   aliases: ["/cls", "clear", "cls"],  desc: "clear the terminal",      run: cmdClear },
@@ -807,6 +868,45 @@
           autoscroll();
         }
 
+        function attachProductTracking(a, p) {
+          a.addEventListener("click", function () {
+            window.track && window.track("product_click", {
+              product: p.name,
+              destination_url: p.url,
+              source: "link_click"
+            });
+          });
+        }
+
+        async function typeProductRow(p, speed) {
+          var a = el("a", "link plink");
+          a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+          var arr = el("span", "arr"); arr.textContent = "→";
+          var name = el("span", "name");
+          var desc = el("span", "pdesc");
+          var url = el("span", "url");
+          a.appendChild(arr); a.appendChild(name); a.appendChild(desc); a.appendChild(url);
+          attachProductTracking(a, p);
+          out.appendChild(a);
+          autoscroll();
+          await typeInto(name, p.name, speed);
+          await typeInto(desc, p.desc, Math.max(4, speed - 2));
+          await typeInto(url, p.url.replace(/^https?:\/\//, "").replace(/\/$/, ""), Math.max(4, speed - 4));
+        }
+
+        function printProductRow(p) {
+          var a = el("a", "link plink");
+          a.href = p.url; a.target = "_blank"; a.rel = "noopener";
+          a.innerHTML =
+            '<span class="arr">→</span>' +
+            '<span class="name">' + p.name + '</span>' +
+            '<span class="pdesc">' + p.desc + '</span>' +
+            '<span class="url">' + p.url.replace(/^https?:\/\//, "").replace(/\/$/, "") + '</span>';
+          attachProductTracking(a, p);
+          out.appendChild(a);
+          autoscroll();
+        }
+
         // ── command implementations ──────────────────────────────
         function platformOf(s) { return (s.label || "").replace(/^\//, ""); }
 
@@ -838,6 +938,10 @@
               url: s.url
             });
           });
+        }
+        function cmdPortfolio() {
+          printLine("// sites & products I've built — shipping in public", "dim");
+          PRODUCTS.forEach(function (p) { printProductRow(p); });
         }
         function cmdHelp() {
           printLine("available commands:", "muted");
@@ -1132,7 +1236,8 @@
           ['<span class="dim">tip:</span> <span class="acc">↑↓</span> <span class="dim">for history</span>'],
           ['<span class="dim">next:</span> <span class="acc">[2] /instagram</span> <span class="dim">·</span> @taeyoung5075'],
           ['<span class="dim">next:</span> <span class="acc">[4] /youtube</span> <span class="dim">·</span> @taeyoung5075'],
-          ['<span class="dim">reach out:</span> <span class="acc">/contact</span> <span class="dim">·</span> mu07010@gmail.com']
+          ['<span class="dim">reach out:</span> <span class="acc">/contact</span> <span class="dim">·</span> mu07010@gmail.com'],
+          ['<span class="dim">see what I built:</span> <span class="acc">/portfolio</span> <span class="dim">— 6 products</span>']
         ];
         var hi = 0;
         setInterval(function () {
@@ -1165,7 +1270,15 @@
           }
           gap();
 
-          await typeLine("[system] type /help · /contact for inquiries · press 1-6 to follow", { speed: 8, cls: "dim" });
+          await typeCommand("ls projects/", 18);
+          await sleep(120);
+          for (var p = 0; p < PRODUCTS.length; p++) {
+            await typeProductRow(PRODUCTS[p], 8);
+            await sleep(60);
+          }
+          gap();
+
+          await typeLine("[system] type /help · /portfolio for my work · /contact for inquiries · press 1-6 to follow", { speed: 8, cls: "dim" });
 
           sequenceDone = true;
           // focus input when sequence is done
